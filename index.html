@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ECollege</title>
+	<script type="text/javascript" src="app.js"></script>
+</head>
+<body>
+	<h2 id="h2text">ECollege</h2>
+	<input type="text" name="typedText" id= "text1" onchange= "changeInput();">
+
+<input type = "button" name="myBtnName" id="myBtnId" value = "PRESS HERE" onclick= "getVal();"
+<br />
+
+<div id="value1"></div>
+
+
+<br />
+<button  id ="eventNew">Press Me</button>
+<br /><br />
+<button  onclick="sendEventInfo(event)" id ="timestamp">TimeStamp</button>
+<br />
+<div id="output"></div>
+<br />
+
+<p>Javascript Timers: </p>
+<input type="button" value="Delayed Alert" onclick="delayAlert()" style="background-color: #feb236;">
+<input type="button" value="Stop Alert" onclick="cancelAlert()" style="background-color: #eca1a6;" #>
+<br />
+<br />
+<input type="text" id:"clock">
+<br />
+<br />
+
+
+<p>Encode URI (UTF encoding): </p>
+<input type="text" name="value2" id="inputencode" >
+<button name="button1" onclick="setEncode(document.getElementById('inputencode').value)" style="background-color: #bac234;">Encode</button>
+<button name="button1" onclick="setDecode(document.getElementById('inputencode').value)" style="background-color: #def123;">Decode</button>
+<p id="info1"></p> 
+
+<br />
+<br />
+<p style="font: 20px Arial, sans-serif;">Dice Game </p>
+<div>
+<button name="player1" onclick="play1()" style="background-color: #ff1493;">Click Player 1</button>
+<p id="messgeplayer1" style="float:right; padding-right:70%; padding-bottom:40%;"></p>
+</div>
+<br />
+<br />
+<button name="player2" onclick="play2()" style="background-color: #dc143c;">Click Player 2</button>
+<p id="resultGame" style="border: 2px solid green; color: green; width:18% ">Result:   </p> 
+
+</body>
+</html>
