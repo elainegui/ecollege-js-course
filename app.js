@@ -1,8 +1,10 @@
+document.write("Exercises<br>")
+
 console.log('hi');
 
 variable1 = 3;
 
-//variable5; //give an error
+//variablexy; //give an error
 
 var variable2; //var keyword let js know the variable2 is a variable, not an object
 
@@ -38,6 +40,11 @@ console.log(p3 instanceof(Boolean));
 console.log(p3 instanceof(Number));
 console.log(typeof p3);
 
+MyVar2=ThatVar=OtherVar=0;  //we can string assignments together, setting more than one variable at a time
+
+//MyVar3, MyVar4 = 1;  //MyVar3 is not defined
+
+
 //The WITH keyword (with statement)
 
 var question = "Javascript is hard?"
@@ -46,91 +53,6 @@ with(question){
 	console.log("Upper case: "+ toUpperCase());
 } // the variable is not referenced by the console.log
 
-
-
-
-
-
-
-
-
-tuningList = ["Tuning Fork","Tuning Lever", "tuning", 1 ];
-
-
-date1 = new Date();
-//alert(date1);
-
-var lessonDate = new Date("August 2, 1976");
-
-var birth = new Date("Marc 0003 1975");
-
-var birth2 = new Date("31 03 1975");  //invalid date
-
-var birth3 = new Date("03 31 1975")
-
-var newDate = new Date("");  //newDate is not defined
-
-var dates = [lessonDate, birth, birth2, birth3];
-
-dates.push(new Date("Apr 03 2020"));
-
-var datesSorted = dates.sort(); //"Fri Apr 3 2020" comes first, then "Invalid Date"
-
-var newDate2 = new Date("");
-
-//test in console if newDate == newDate2  //false
-
-var birth4 = new Date("000003 00031 01975");
-//test in console if birth3 == birth4  // false
-
-var lessonDateDay = lessonDate.getDate();
-var lessonDateMonth = lessonDate.getMonth(); //7
-var lessonDateYear = lessonDate.getYear();  //76  //deprecated - DO NOT USE
-var lessonDateYear2 = lessonDate.getFullYear();
-
-var lessonDateDayOfWeek = lessonDate.getDay(); //1 //0 represents Sunday
-
-var todayMilliseconds = date1.getMilliseconds(); //0-999
-
-var lessonDateToString = lessonDate.toString();
-
-var lessonDateHere = lessonDate.toLocaleDateString();  //  8/2/1976
-
-var lessonDateEngland = lessonDate.toLocaleDateString('en-gb');  //  2/8/1976
-
-var lessonDateUS = lessonDate.toLocaleDateString('en-us');  //  2/8/1976
-
-//setting birth4 (Mar 31 1975)
-birth4.setDate(birth4.getDate()+30); //plus 30 days  //Apr 30 1975
-
-var birthElaine = new Date("Aug 05 1976");
-var birthRodrigo = new Date("Mar 30 1975");
-
-var ageDifference = parseInt(birthElaine-birthRodrigo)/(24*60*60*1000);  //494
-// birthElaine-birthRodrigo appears in milliseconds
-
-var birthOther = new Date("Aug 05 1976");
-
-//comparing dates
-if(birthElaine.getTime()==birthOther.getTime()){
-	console.log("comparing Dates: same");
-}else{
-	console.log("comparing Dates: not same");
-}
-//
-
-var x = {};
-
-var y = null;
-
-function changeInput(){
-	document.getElementById("h2text").innerHTML= document.getElementById("text").value;
-
-}
-
-
-document.write("<p> new paragraph ");
-//alert(date1.getDay());
 
 
 //Objects and OOP
@@ -215,7 +137,86 @@ document.writeln(myNum+"<BR>");
 document.writeln("<BR>");
 
 
+
+
 //Date and Time
+date1 = new Date();
+//alert(date1);
+
+var lessonDate = new Date("August 2, 1976");
+
+var birth = new Date("Marc 0003 1975");
+
+var birth2 = new Date("31 03 1975");  //invalid date
+
+var birth3 = new Date("03 31 1975")
+
+var newDate = new Date("");  //newDate is not defined
+
+var dates = [lessonDate, birth, birth2, birth3];
+
+dates.push(new Date("Apr 03 2020"));
+
+var datesSorted = dates.sort(); //"Fri Apr 3 2020" comes first, then "Invalid Date"
+
+var newDate2 = new Date("");
+
+//test in console if newDate == newDate2  //false
+
+var birth4 = new Date("000003 00031 01975");
+//test in console if birth3 == birth4  // false
+
+var lessonDateDay = lessonDate.getDate();
+var lessonDateMonth = lessonDate.getMonth(); //7
+var lessonDateYear = lessonDate.getYear();  //76  //deprecated - DO NOT USE
+var lessonDateYear2 = lessonDate.getFullYear();
+
+var lessonDateDayOfWeek = lessonDate.getDay(); //1 //0 represents Sunday
+
+var todayMilliseconds = date1.getMilliseconds(); //0-999
+
+var lessonDateToString = lessonDate.toString();
+
+var lessonDateHere = lessonDate.toLocaleDateString();  //  8/2/1976
+
+var lessonDateEngland = lessonDate.toLocaleDateString('en-gb');  //  2/8/1976
+
+var lessonDateUS = lessonDate.toLocaleDateString('en-us');  //  2/8/1976
+
+//setting birth4 (Mar 31 1975)
+birth4.setDate(birth4.getDate()+30); //plus 30 days  //Apr 30 1975
+
+var birthElaine = new Date("Aug 05 1976");
+var birthRodrigo = new Date("Mar 30 1975");
+
+var ageDifference = parseInt(birthElaine-birthRodrigo)/(24*60*60*1000);  //494
+// birthElaine-birthRodrigo appears in milliseconds
+
+var birthOther = new Date("Aug 05 1976");
+
+//comparing dates
+if(birthElaine.getTime()==birthOther.getTime()){
+	console.log("comparing Dates: same");
+}else{
+	console.log("comparing Dates: not same");
+}
+//
+
+var x = {};
+
+var y = null;
+
+function changeInput(){
+	document.getElementById("h2text").innerHTML= document.getElementById("text").value;
+
+}
+
+document.write("<p> new paragraph ");
+//alert(date1.getDay());
+
+
+
+
 var today = new Date();
 var birthday = new Date('08 05, 1976 9:00 AM'); //string //birthday= new Date('Aug 05, 1976 9:00 AM');
 //birthday = new Date(1970,11, 02); //Parameters(Dec 2nd) month 11: December
@@ -251,9 +252,18 @@ console.log(1 == '1');  //true
 
 
 //Arrays
+document.write("<br>Arrays")
 MyArray = new Array
 
 MyArray2 = new Array(5)
+
+MyArray2[7]="hi";
+
+console.log("MyArray2.length "+MyArray2.length);
+
+MyArray3 = new Array(123,"hello there",3.21);
+
+MyArray4= ["hi", 44, 4.4]
 
 //Associative Arrays
 SoccerTeam = new Array
@@ -283,32 +293,95 @@ SquashTeam = {
 Dogs=['Spaniel', 'Terrier', 'Bulldog'];
 Cats = ['Long Hair', 'Short Hair', 'Tabby', 'Farm'];
 
+//Iteration
+//for(...in...)
 for(index in SquashTeam){
 document.write(SquashTeam[index]+"</br>");
 }
+
+//forEach()
+Dogs.forEach(Info);
+function Info(v,i,a){  //value, index, array
+document.write("["+ i +"] is "+ v +"<br>")
+}
+
+//map()
+NumsArray = [4, 81, 25, 9, 49];
+Roots = NumsArray.map(Math.sqrt);
+document.write("Roots "+Roots+"<br>")
+
 
 Pets = Cats.concat(Dogs);
 document.write(Pets);
 
 document.write("</br>");
 
+document.write(Pets.join('+')+"<br>");
+
 Nums = [99,16,11,66.5,54,23];
 Root = Nums.map(Math.sqrt);
-console.log(Root);
+document.write("Nums Root "+Root+"<br>");
 
-console.log(Nums.reverse());
-console.log(Nums.sort());
+document.write("Nums " +Nums+"<br>");
+document.write("Nums.reverse() " +Nums.reverse()+"<br>");
+document.write("Nums.sort() "+Nums.sort()+"<br>");
 
-Nums.push("Tony");
-Nums.push("chair");
-console.log(Nums.sort());
+document.write(Nums.sort()+"<br>");
+
+document.write(Nums.push("chair")+"<br>");
+document.write("Nums push + sort() "+Nums.sort()+"<br>");
+
+document.write("Nums.pop() "+Nums.pop()+"<br>"); //push() and then pop() is known as 
+										//FILO (First in Last Out) or LIFO (or stack)
+document.write("Nums.shift() "+Nums.shift()+"<br>"); //push(), reverse() and then pop() is called
+											// FIFO or LILO (or buffer)
+document.write("Nums.unshift() "+Nums.unshift("hi")+"<br>");
+document.write("Nums " +Nums+"<br>");
+
 
 for(j in Nums){
 	console.log(Nums[j])
 	if(Nums[j]=="Tony") break
 }
 
-document.write(Cats.join(" and "));
+Nums3 = [[5,3],[2,6],[3,0]];
+document.write("<br>Nums3 "+Nums3);
+document.write("<br>Nums3 sort "+Nums3.sort()+"<br>");
+
+//Sort Numerically
+function SortNumerically(a,b){
+	return a-b;
+}
+
+Nums4= [6,33,20,0,3];
+document.write("Nums4 "+Nums4+"<br>");
+document.write("Nums4 sorted "+Nums4.sort()+"<br>");
+document.write("Nums4 sorted numerically "+Nums4.sort(SortNumerically)+"<br>");
+//SortNumeric() without parenthesis because we are telling sort() 
+//wich function to use and not passing it the result of calling the function  
+
+Nums5= ["cat", "dog", "horse", "Elaine", "234",123, 1000];
+document.write("Nums5 sorted "+Nums5.sort()+"<br>");
+document.write("Nums5 sorted numerically "+Nums5.sort(SortNumerically)+"<br>");
+
+//splice()
+document.write("Cats "+Cats+"<br>");
+Cats.splice(1,2);
+document.write("Cats after splice() "+Cats+"<br>");
+Cats.push("Siamese");
+
+document.write(Cats.push('Persian')+"<br>");
+document.write("Cats "+Cats+"<br>");
+
+Cats.splice(2,0, 'cat1','cat2'); //0 tells splice there are noo elements to be removed
+document.write('Cats after splice(2,0, "cat1","cat2") '+Cats+'<br>');
+
+//advanced splicing
+//adding and removing elements at the same time
+Cats.splice(2,3,"White Ball", "Black");
+document.write("Cats after splice(2,3, 'White Ball', 'Black')"+Cats+"<br>")
+
+
 
 //Regular Expressions
 /*In JavaScript you will use regular expressions mostly in two functions: 
