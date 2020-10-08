@@ -7,6 +7,7 @@ variable1 = 3;
 //variablexy; //give an error
 
 var variable2; //var keyword let js know the variable2 is a variable, not an object
+				//var keyword inside a function tell js the variable has local scope
 
 variable3 = undefined;
 
@@ -796,3 +797,16 @@ var trees = ['redwood', 'bay', 'cedar', 'oak', 'maple'];
 \r – carriage return
 \t – tab
 */
+
+
+//For Loop
+output="";
+for(j=3,f=1;j>0;--j,++f){  //we can include aditional statements for
+ 							//the 1st and 3rd statements of the for loop
+	f*=j;
+	output += f;
+}
+console.log("output "+output);
+
+
+//Scope
