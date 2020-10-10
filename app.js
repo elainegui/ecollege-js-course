@@ -904,8 +904,52 @@ function SetCookie(name, value, seconds, path, domain, secure){
 
 SetCookie('username', 'fredsmith', 2592000);
 
-//Reading a cookie
-function getCookie(){
-	var dc = ';'+ document.cookie;
+//other way to create a cookie:
+document.cookie = 'id=elainegui; expires=Thu, 18 Dec 2013 12:00:00 UTC';
+console.log("document.cookie "+document.cookie)
 
+//Reading a cookie
+function getCookie(name){
+	var dc = ';'+ document.cookie;
+	var start = dc.indexOf(';'+ name+ '=');
+	if(start=-1) return false;
+	start+=name.length+2;
+	var end = dc.indexOf(';', start);
+	end = (end==-1)? dc.length : end;
+	return decodeURI(dc.substring(start,end))	
 }
+//to read back a cookie that is stored in the user's computer:
+//username = getCookie('username'); 
+
+//Deleting a cookie
+function deleteCookie(name){
+	setCookie(name, '', -3600);
+	//set its expiry to -3600 seconds (1 hour in the past)
+}
+
+//Local Storage
+//when we want to save larger amounts of data
+
+//to locally store a username and password:
+localStorage.setItem('username', 'Elaine');
+localStorage['password']= 'Mypassword123';  //another way
+
+//to retrieve the details:
+username = localStorage.getItem('username');
+console.log('username '+ username);
+password = localStorage.getItem('password');
+console.log('password '+ password);
+
+//displys an alert if the localSorage is supported in the browser
+if(typeof localStorage == 'undefined')
+	document.write('local storage unavailable');
+else
+	document.write('local storage available');
+
+//remove and clearing local data
+localStorage.removeItem('username');  //remove an item of the localStorage
+localStorage.clear();  //clear the localStorage completely
+
+
+
+
