@@ -201,7 +201,10 @@ if(birthElaine.getTime()==birthOther.getTime()){
 }else{
 	console.log("comparing Dates: not same");
 }
-//
+
+console.log("birthElaine.getTime() "+birthElaine.getTime());
+//getTime() returns the number of milliseconds since 1 January 1970 00:00:00
+
 
 var x = {};
 
@@ -411,7 +414,7 @@ if(check){
 var check2 = re.test(str);
 
 document.write("<br/>");
-document.write("Hiiiii".bold());
+document.write("Javascript".bold());
 
  //if(str){alert("ho")}
 
@@ -553,6 +556,18 @@ function checkValue(value){
 }
 
 checkValue(6);
+
+// using onerror
+//attaching a new function to the onerror event
+/*window.onerror= function(msg, url, line){
+	var temp = url.split('/');
+	url = temp[temp.length-1]
+	alert('Error in line '+line+'of'+url+'\n\n'+msg);
+}*/
+
+// or for part of the code, place onerror in an element and call a function to handle the error 
+//ex: <div onerror='fixError()''> contenets of div </div>
+
 
 //JavaScript Timers
 var timeoutID;
@@ -809,4 +824,88 @@ for(j=3,f=1;j>0;--j,++f){  //we can include aditional statements for
 console.log("output "+output);
 
 
-//Scope
+//DOM
+//window properties
+document.write("<br>window properties<br>")
+document.write(window.closed +"<br>");
+document.write(window.defaultStatus +"<br>");
+document.write(window.document +"<br>");
+document.write(window.frames +"<br>");
+document.write(window.frames[0] +"<br>");
+document.write(window.history +"<br>");
+document.write(window.history.back() +"<br>");
+document.write(window.innerHeight +"<br>"); //to avail how much space is available
+											// in the current window
+document.write(window.innerWidth +"<br>");
+document.write(window.length +"<br>");
+document.write(window.location +"<br>");
+document.write(window.name +"<br>");
+document.write(window.navigator +"<br>");
+document.write(window.opener +"<br>");
+document.write(window.outerHeight +"<br>");
+document.write(window.outerWidth +"<br>");
+document.write(window.pageXOffset +"<br>");	
+document.write(window.pageYOffset +"<br>");
+document.write(window.parent +"<br>");
+document.write(window.screen +"<br>");
+document.write(window.screen.availHeight +" is the screen Height<br>");
+document.write(window.screen.availWidth +" is the screen Width<br>");
+document.write(window.screen.colorDepth +" is the screen Color Depth<br>");
+document.write(window.screen.height +" is the screen total Height<br>");
+document.write(window.screen.pixelDepth +" is the screen Pixel Depth<br>");
+document.write(window.screenX +"<br>");
+document.write(window.screenY +"<br>");
+document.write(window.self +"<br>");
+document.write(window.status +"<br>");
+document.write(window.top +"<br>");
+
+//Adding and removing elements
+//add element
+newImg= document.createElement('img');
+document.body.appendChild(newImg);
+newImg.id = "newImgAdded";
+newImg.src="images/casper.jpeg"
+
+//remove element
+//newImg.parentNode.removeChild(newImg); 
+
+document.getElementById('newImgAdded').style.display='none'; //the space which the element occupied will disappear as well 
+//document.getElementById('newImgAdded').style.display='block';
+
+//document.getElementById('newImgAdded').style.visibility='hidden'; //make the element invisible
+//document.getElementById('newImgAdded').style.visibility='visible';
+
+
+
+
+//Cookie
+// cookies are used to store data such as username and password on the user's computer
+	//so that the user doesn't have to reenter these data whenever he/she re-visit a webpage 
+//To be able to store special characters and spaces, values have to be run through the 
+	//encodeURI() function of javascript.
+
+//Setting up a cookie
+function SetCookie(name, value, seconds, path, domain, secure){
+	// name and value are mandatory arguments, the others are optional
+	//seconds: the number of seconds untill the cookie expiry
+	//path: the path to the issuing server
+	//domain: the web domain to use
+	// if "secure", the browser must use SSL
+
+	var date = new Date();
+	date.setTime(date.getTime()+ seconds*100);
+
+	var expires = seconds? ';expires'+ date.toGMTString() : '';
+	path = path? ';path= '+ path: '';
+	domain = domain? ';domain= '+ domain : '';
+	secure = secure? ';secure'+ secure : '';
+	document.cookie = name+ '='+ encodeURI(value)+ expires+path+domain+secure;
+}
+
+SetCookie('username', 'fredsmith', 2592000);
+
+//Reading a cookie
+function getCookie(){
+	var dc = ';'+ document.cookie;
+
+}
