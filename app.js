@@ -940,7 +940,7 @@ console.log('username '+ username);
 password = localStorage.getItem('password');
 console.log('password '+ password);
 
-//displys an alert if the localSorage is supported in the browser
+//displays an alert if the localSorage is supported in the browser
 if(typeof localStorage == 'undefined')
 	document.write('local storage unavailable');
 else
@@ -951,5 +951,74 @@ localStorage.removeItem('username');  //remove an item of the localStorage
 localStorage.clear();  //clear the localStorage completely
 
 
+//userAgent String
+//it is a string passed with the browser that has information about the user's
+	//computer and web browser
+console.log("navigator.userAgent "+navigator.userAgent);
+/*navigator.userAgent Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+	 Chrome/85.0.4183.121 Safari/537.36*/
+/*the browser is Chrome, it is broadly compatible with version 5 of Mozilla-based browsers
+	 such as Firefox, the operating system is Windows 10 (NT 10.0), the layout engine is xxxxxxxx 
+	 yyyyyy is running on the computer, and the browser is a Windows-On-Windows 
+	  program (a 32-bit application running on a 64-bit processor */
+
+// To get the browser
+//we know it is Chrome
+console.log("navigator.userAgent.indexOf('Chrome') "+navigator.userAgent.indexOf('Chrome'));
+
+//function to know which is the user's browser
+function NavCheck(check){
+	return navigator.userAgent.indexOf(check) !=-1; 
+}
 
 
+function GetBrowser(){
+	var agent;
+	if(document.all) agent='IE'; //checks if it is an early version of the IE
+	else if (NavCheck(window.opera)) agent='Opera'; //early version of Opera
+	else if (NavCheck('OPR')) agent='Opera';
+	else if (NavCheck('Chrome')) agent='Chrome';
+	else if (NavCheck('Trident')) agent='IE';  //newer version of IE
+	else if (NavCheck('iPod')) agent='Ipod';
+	else if (NavCheck('iPad')) agent='Ipad';
+	else if (NavCheck('Android')) agent='Anddroid';
+	else if (NavCheck('Safari')) agent='Safari';
+	else if (NavCheck('Gecko')) agent='Firefox';
+	else  agent='unknown';
+	return agent;
+} 
+
+Browser = GetBrowser();
+
+
+
+//The Query String
+//the query string is the part of the URL that follows the document file name
+	//is preceeded by a ? character
+//typical GET request: http://www.google.com/search?q=query+string&amp;ie=utf-8
+//it has 2 value key/value pairs separated by a & character
+
+//Get a Query String
+function GetQueryString(){
+	var parts = window.location.search.substr(1).split('&');
+	//window.location has the file name (file:///C:/Users/Elaine/Desktop/ecollege/source/index.html)
+	//search is a paramether of the window.location which is the query after the location
+	//parts is an array resulted of the split of the query
+	for (var i in parts)
+		parts[i] = parts[i].split('=');
+
+		return parts;
+}
+
+//To obtain keys and values of the query string:
+Query = GetQueryString();
+for(i in Query){
+	document.write(Query[i][0]+ "-"+ Query[i][1]+"<br>");
+}
+
+//because the query string has special or escaped values, we need to decode:
+/*Key0 = decodeURIComponent(Query[0][0]);
+Val0 = decodeURIComponent(Query[0][1]);
+
+Key1 = decodeURIComponent(Query[1][0]);
+Val1 = decodeURIComponent(Query[1][1]);*/
