@@ -184,6 +184,8 @@ var lessonDateEngland = lessonDate.toLocaleDateString('en-gb');  //  2/8/1976
 
 var lessonDateUS = lessonDate.toLocaleDateString('en-us');  //  2/8/1976
 
+var lessonTimeIreland = lessonDate.toLocaleTimeString();  //  12:00:00 AM
+
 //setting birth4 (Mar 31 1975)
 birth4.setDate(birth4.getDate()+30); //plus 30 days  //Apr 30 1975
 
@@ -569,12 +571,18 @@ checkValue(6);
 //ex: <div onerror='fixError()''> contenets of div </div>
 
 
+
+
 //JavaScript Timers
 var timeoutID;
 
+//setTimeout()
+//Setting a timeout
 function delayAlert(){
 	//setTimeout()
 	timeoutID = window.setTimeout(slowAlert, 2000);
+	//obs: using 2 functions at a time
+	//setTimeout(″document.write(′Starting′); alert(′Hello!′)″, 5000)
 }
 
 function slowAlert(){
@@ -588,21 +596,62 @@ function cancelAlert(){
 	alert("Alert cancelled");
 }
 
+//Cancel a timeout
+//we have to assign the setTimeout() to a variable
+//handle = setTimeout(DoThis, 5000)
+//clearTimeout(handle);
+
+//setIterval()
 /*
 <input type="button" value="Delayed Alert" onclick="delayAlert()">
 <input type="button" value="Stop Alert" onclick="cancelAlert()">
 */
-
+/*<input type="text" id:"clock">*/
 //window refreshes every 1 second
-/*var int= window.setInterval(function(){ clock()}, 1000);
+var interval= window.setInterval(function(){ clock()}, 1000);
 
 function clock(){
 	var myDate = new Date();
 	var myTime = myDate.toLocaleTimeString();
 	document.getElementById('clock').value = myTime;
+}
+
+//Clear an interval
+//handle = setInterval("ShowTime(O('time'))", 1000);
+//clearInterval(handle);
+
+
+//simple animation example
+size = left = 0;
+//setInterval(Animate,30);
+
+function Animate(){
+	size+=10;
+	left+=3;
+
+	if (size==200) size=0;
+	if (left==600) left=0; 
+
+	document.getElementById('box').style.width = size+'px';
+	document.getElementById('box').style.height = size+'px';
+	document.getElementById('box').style.left = left+'px';
+}
+
+
+
+//Web Workers
+// is a way to run multiple js threads int he backround, that can pass messages to each other
+// how to find a browser supports web workers:
+/*if(window.worker){
+	//alert("Web workers suppported");
+}else{
+	//alert("Web workers not suppported"); //Chrome does not support workers
+}*/
+/*var worker = new Worker('worker.js');
+worker.onmessage= function(event){
+	document.getElementById('result').innerHTML= event.data;
 }*/
 
-/*<input type="text" id:"clock">*/
 
 //Debugging with Stack
 //good for code with functions inside other functions, makes easier to figure out what function caused the problem, the line and the file
