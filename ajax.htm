@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Using Ajax (div version)</title>
+    <script src='../mainfunctions.js'></script>
+    <script src='ajaxfunctions.js'></script>
+    <style>
+      body {
+        background:#ddd;
+      }
+      #head {
+        font-size  :16pt;
+        font-family:sans-serif;
+      }
+      #mydiv {
+        border:5px solid black;
+        margin:25px;
+      }
+    </style>
+  </head>
+  <body>
+    <p id='head'>The Yahoo! homepage will appear in the div below:</p>
+
+    <div id='mydiv'>Loading...</div>
+
+    <script>
+      PostAjaxRequest(callback, 'ajax.php', 'url=http://yahoo.com')
+
+      function callback()
+      {
+        O('mydiv').innerHTML = this
+      }
+    </script>
+  </body>
+</html>

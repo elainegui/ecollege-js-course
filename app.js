@@ -486,6 +486,84 @@ function getVal(){
 var date = xmlDoc.getElementsByTagName("Date")[0].childNodes[0].nodeValue;*/
 
 
+//Ajax
+//Create an Ajax Object
+function CreateAjaxObject(callback){
+	//create a new ajax object depending on the browser
+	try{
+		var ajax = new XMLHttpRequest();
+	}catch(e1){
+		try{
+			ajax = new ActiveXObject("Msxml2.XMLHTTP");
+		}catch(e2){
+			try{
+				ajax = new ActiveXObject("Microsoft.XMLHTTP");
+			}catch(e3){
+				ajax=false;
+			}
+		}
+	}
+
+	if(ajax){
+		// the onreadystatechange event is triggered whenever something happens int the 
+			//ajax exchange with the server
+		ajax.onreadystatechange = function(){
+			//The code can listen in and be redy to receive any data sent to the browser by the server
+			if(this.readyState==4 &&  //value 4: the server sent some data
+				this.status==200 && //the data is meaninful and not an error
+				this.responseText!=null){ //the data is not an empty string
+				callback.call(this.responseText)
+			}
+		}
+	}else{ 
+		return false;
+	}
+
+	return ajax;
+}
+
+//POST Ajax Request
+function PostAjaxRequest(callback, url, args){
+	//set the contenet type to a string that enables encoded form data to be transmitted
+	var contenttype = 'application/x-www-form-urlencoded';
+	//ajax object is created or false is returned to indicate an error was encountered
+	var ajax = new CreateAjaxObject(callback);
+	if(!ajax) return false;
+	//open the ajax request with a call to the open() method of the ajax object
+	ajax.open('POST', url, true);
+	//send headers to the server via POST request including the contenttype string,
+		// the length of the args argument, and a header ready to close the connection
+	ajax.setRequestHeader('Content-type', contenttype);
+	ajax.setRequestHeader('Content-length', args.length);
+	ajax.setRequestHeader('Connection', close);
+	//the data is sent, the connection is closed and a value returned to indicate success
+	ajax.send(args);
+	return true;
+}
+
+//GET Ajax Request
+function GetAjaxRequest(callback, url, args){
+	//a variable called nocache is created from a random number, so a unique value 
+		//can be added to the query string which will prevent any caching 
+	var nocache = '&nocache='+ Math.random()*1000000;
+	//create a new ajax object
+	var ajax = new CreateAjaxObject(callback);
+	if(!ajax) return false;
+	//the request is made with a call to the open method of the ajax object
+	ajax.open('GET', url + '?'+ args +nocache, true);
+	//the request is sent
+	ajax.send(null);
+	return true;
+}
+
+//Create our callback() function
+function callback(){
+	document.getElementById('mydivAjax').innerHTML = this;
+}
+
+//calling Post or Get ajax request:
+Post('callback','ajax.php','url=http://irishtimes.com');
+
 //Event Listeners
 //eventListener are a new way to use events in JS
 //old way: 
@@ -1071,3 +1149,5 @@ Val0 = decodeURIComponent(Query[0][1]);
 
 Key1 = decodeURIComponent(Query[1][0]);
 Val1 = decodeURIComponent(Query[1][1]);*/
+
+
