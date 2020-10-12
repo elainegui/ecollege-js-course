@@ -6,6 +6,8 @@ variable1 = 3;
 
 //variablexy; //give an error
 
+var numx =10 , charc = "C" ; //declare an initialize 2 variables
+
 var variable2; //var keyword let js know the variable2 is a variable, not an object
 				//var keyword inside a function tell js the variable has local scope
 
@@ -13,14 +15,16 @@ variable3 = undefined;
 
 variable4 = null;  //typeof variable4 : "object"
 
-var variable5;
-var variable6=null;
-console.log("variable4==variable5 "+(variable6==variable5));  //undefined and null are considered equal
+console.log("variable3==variable4 "+(variable3==variable4));  //undefined and null are considered equal
+
+console.log("variable2==variable3 "+(variable2==variable3));
+
 
 //Logical Operators
 console.log("1=='1' is "+(1=='1'));
 console.log("1!=='1' is "+(1!=='1')); //true  //not equal in value and type
 console.log("1==='1' is "+(1==='1'));
+console.log("1!='1' is "+(1!='1'));
 
 var p=2;
 console.log("result: " + (p-->1||(++p>2)));
@@ -144,7 +148,8 @@ document.writeln("<BR>");
 date1 = new Date();
 //alert(date1);
 
-var lessonDate = new Date("August 2, 1976");
+//creating date objects
+var lessonDate = new Date("August 2, 1976 19:35:00");
 
 var birth = new Date("Marc 0003 1975");
 
@@ -152,7 +157,12 @@ var birth2 = new Date("31 03 1975");  //invalid date
 
 var birth3 = new Date("03 31 1975")
 
+var newDate4 = new Date (2014,6,4);
+
+var newDate5 = new Date(2014,6,4,9,25);  //up to seven arguments
+
 var newDate = new Date("");  //newDate is not defined
+
 
 var dates = [lessonDate, birth, birth2, birth3];
 
@@ -167,24 +177,50 @@ var newDate2 = new Date("");
 var birth4 = new Date("000003 00031 01975");
 //test in console if birth3 == birth4  // false
 
+
+//Date Methods
 var lessonDateDay = lessonDate.getDate();
+
 var lessonDateMonth = lessonDate.getMonth(); //7
-var lessonDateYear = lessonDate.getYear();  //76  //deprecated - DO NOT USE
+
+var lessonDateYear = lessonDate.getYear();  //76  
+											//deprecated - DO NOT USE
+var date1Year = date1.getYear(); //120 (after the baseline 1900)
+var date2000s = new Date("Feb 20 2001"); //101
+var date2000sYear = date2000s.getYear();
+
 var lessonDateYear2 = lessonDate.getFullYear();
 
 var lessonDateDayOfWeek = lessonDate.getDay(); //1 //0 represents Sunday
 
+var lessonDateHours = lessonDate.getHours(); //19
+
+var lessonDateMin = lessonDate.getMinutes(); //35
+
+var lessonDateSec = lessonDate.getSeconds(); //0
+
 var todayMilliseconds = date1.getMilliseconds(); //0-999
 
-var lessonDateToString = lessonDate.toString();
+//IMPORTANT
+var lessonDateToString = lessonDate.toString(); //"Mon Aug 02 1976 19:35:00 GMT+0100 (Irish Standard Time)"
 
-var lessonDateHere = lessonDate.toLocaleDateString();  //  8/2/1976
+//IMPORTANT
+var lessonDateUTC = lessonDate.toUTCString(); // "Mon, 02 Aug 1976 18:35:00 GMT"
+
+//IMPORTANT
+var lessonDateToDateStr = lessonDate.toDateString(); //  ""Mon Aug 02 1976"									"
+
+var lessonDateLocaleDateStr = lessonDate.toLocaleDateString();  //  8/2/1976 //date from computer's conventions
+
+var lessonDateLocaleStr = lessonDate.toLocaleString();  //"8/2/1976, 7:35:00 PM"
 
 var lessonDateEngland = lessonDate.toLocaleDateString('en-gb');  //  2/8/1976
 
 var lessonDateUS = lessonDate.toLocaleDateString('en-us');  //  2/8/1976
 
 var lessonTimeIreland = lessonDate.toLocaleTimeString();  //  12:00:00 AM
+
+var lessonDateTimezoneOffset = lessonDate.getTimezoneOffset(); //-60 (in minutes)
 
 //setting birth4 (Mar 31 1975)
 birth4.setDate(birth4.getDate()+30); //plus 30 days  //Apr 30 1975
@@ -523,7 +559,7 @@ function CreateAjaxObject(callback){
 }
 
 //POST Ajax Request
-function PostAjaxRequest(callback, url, args){
+/*function PostAjaxRequest(callback, url, args){
 	//set the contenet type to a string that enables encoded form data to be transmitted
 	var contenttype = 'application/x-www-form-urlencoded';
 	//ajax object is created or false is returned to indicate an error was encountered
@@ -562,7 +598,7 @@ function callback(){
 }
 
 //calling Post or Get ajax request:
-Post('callback','ajax.php','url=http://irishtimes.com');
+PostAjaxRequest('callback','ajax.php','url=http://irishtimes.com');*/
 
 //Event Listeners
 //eventListener are a new way to use events in JS
@@ -1150,4 +1186,15 @@ Val0 = decodeURIComponent(Query[0][1]);
 Key1 = decodeURIComponent(Query[1][0]);
 Val1 = decodeURIComponent(Query[1][1]);*/
 
+
+
+//From the book Javascript in Easy Steps - Mike McGrath
+/*The DOMContentLoaded event fires when just the HTML document
+ has loaded whereas the window.onload event only fires when the entire page*/
+
+/*type attribute specifying the unique MIME type of "text/javascript" – to identify 
+the element's contents as JavaScript.
+MIME (Multipart Internet Mail Extension) types describe content types – text/html 
+for HTML, text/css for style sheets, and text/javascript for JavaScript code.
+*/
 
