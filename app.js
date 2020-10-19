@@ -231,6 +231,8 @@ var birthRodrigo = new Date("Mar 30 1975");
 var ageDifference = parseInt(birthElaine-birthRodrigo)/(24*60*60*1000);  //494
 // birthElaine-birthRodrigo appears in milliseconds
 
+var differenceER = birthElaine-birthRodrigo;  //42681600000
+
 var birthOther = new Date("Aug 05 1976");
 
 //comparing dates
@@ -239,6 +241,7 @@ if(birthElaine.getTime()==birthOther.getTime()){
 }else{
 	console.log("comparing Dates: not same");
 }
+
 
 console.log("birthElaine.getTime() "+birthElaine.getTime());
 //getTime() returns the number of milliseconds since 1 January 1970 00:00:00
@@ -256,7 +259,11 @@ function changeInput(){
 document.write("<p> new paragraph ");
 //alert(date1.getDay());
 
-
+//Exercises
+var anniversary1 = new Date('5:30 PM, 2018,July 5');  // Thu Jul 05 2018 17:30:00 GMT+0100 (Irish Standard Time)
+var anniversary2 = new Date('5:30 PM, 5/7/2018');  //  Mon May 07 2018 17:30:00 GMT+0100 (Irish Standard Time)
+var anniversary3 = new Date('2018, Jul 5, 5:30 PM'); //same as anniversary1
+var anniversary4 = new Date('5:30 PM,2018, July 5'); //same as anniversary1
 
 
 var today = new Date();
@@ -377,7 +384,7 @@ document.write("Nums.pop() "+Nums.pop()+"<br>"); //push() and then pop() is know
 										//FILO (First in Last Out) or LIFO (or stack)
 document.write("Nums.shift() "+Nums.shift()+"<br>"); //push(), reverse() and then pop() is called
 											// FIFO or LILO (or buffer)
-document.write("Nums.unshift() "+Nums.unshift("hi")+"<br>");
+document.write("Nums.unshift() "+Nums.unshift("hi", "hello")+"<br>");
 document.write("Nums " +Nums+"<br>");
 
 
@@ -1004,7 +1011,7 @@ document.write(window.length +"<br>");
 document.write(window.location +"<br>");
 document.write(window.name +"<br>");
 document.write(window.navigator +"<br>");
-document.write(window.opener +"<br>");
+document.write(window.opener +"<br>");  //is the window that opened the new window(window.open)
 document.write(window.outerHeight +"<br>");
 document.write(window.outerWidth +"<br>");
 document.write(window.pageXOffset +"<br>");	
@@ -1021,6 +1028,15 @@ document.write(window.screenY +"<br>");
 document.write(window.self +"<br>");
 document.write(window.status +"<br>");
 document.write(window.top +"<br>");
+
+
+//window open() method
+
+//window.open("","MsgWindow", "width = 200, height=100"); //opens a new window 
+//window.open("https://www.w3schools.com", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=400,height=400");
+window.open("","MsgWindow","_self").document.write("This is a window"); //opens a new window same size
+
+
 
 //Adding and removing elements
 //add element
@@ -1197,4 +1213,98 @@ the element's contents as JavaScript.
 MIME (Multipart Internet Mail Extension) types describe content types – text/html 
 for HTML, text/css for style sheets, and text/javascript for JavaScript code.
 */
+
+
+function rand1(){
+	//return Math.random()*10;
+	return 9.999999999999999  //output is 9. ...98
+}
+
+var stored = 66.70;
+console.log("The number is "+ stored);
+//console.log("The number is ".join(stored));
+//console.log("The number is ".concat(stored));
+//console.log("The number is ".concatenate(stored));
+
+var out = "";
+var x = 0;
+function loop1(){
+	// for(x=1;x<=10;x++){
+		for( var x=1;x<=10;x++){
+		out+=x;
+	}
+	return out;
+}
+
+var numVarx = 5;
+function loop2(){
+	do{
+		out += numVarx;
+	}while(--numVarx>0);
+	return out;
+}
+
+/*-------------*/
+var a1 = 1;
+var b1 = 2;
+var c1 = 3;
+
+var add = a1+b1+c1; 
+var subt = c1-b1-a1;
+var div = c1/a1;
+var mult = a1*b1;
+var mod = c1%b1%a1;
+/*-------------*/
+
+var First_Name;
+var Last_Name;
+
+var First_Name = "Elaine"
+var Last_Name = "Ottero;"
+//alert(First_Name+Last_Name);
+
+/*----------------*/
+
+function changeValue(chA){
+	var chA = chA*chA;
+	return chA;
+}
+var chA = 10;
+var resultCh = changeValue(chA);
+console.log("Change value(chA): "+chA);
+
+/*---------------*/
+
+var dogs= [];
+var randDog = Math.random()*10;
+
+var out2 = "";
+
+switch(randDog){
+case 0:
+	out2="Terrier";
+	break;
+
+case 1:
+	out2="Bulldog";
+	break;
+
+case 2:
+	out2="Spaniel";
+	break;
+
+case 3:
+	out2="Poodle";
+	break;
+
+case 4:
+	out2="Labrador";
+	break;
+
+case 5:
+	out2="Retriever";
+	break;
+}
+
+console.log("The dog chosen is: "+out2);
 
