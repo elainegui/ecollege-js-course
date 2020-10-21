@@ -1023,7 +1023,7 @@ document.write(window.screen.availWidth +" is the screen Width<br>");
 document.write(window.screen.colorDepth +" is the screen Color Depth<br>");
 document.write(window.screen.height +" is the screen total Height<br>");
 document.write(window.screen.pixelDepth +" is the screen Pixel Depth<br>");
-document.write(window.screenX +"<br>");
+document.write(window.screenX +"<br>");  //horizontal distance from the left border of the user's browser viewport
 document.write(window.screenY +"<br>");
 document.write(window.self +"<br>");
 document.write(window.status +"<br>");
@@ -1034,8 +1034,9 @@ document.write(window.top +"<br>");
 
 //window.open("","MsgWindow", "width = 200, height=100"); //opens a new window 
 //window.open("https://www.w3schools.com", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=400,height=400");
-window.open("","MsgWindow","_self").document.write("This is a window"); //opens a new window same size
 
+//window.open("","MsgWindow","_self")//.document.write("This is a window"); //opens a new window same size
+//window.open("","MsgWindow","_blank")
 
 
 //Adding and removing elements
