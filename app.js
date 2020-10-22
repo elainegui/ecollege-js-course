@@ -10,6 +10,7 @@ var numx =10 , charc = "C" ; //declare an initialize 2 variables
 
 var variable2; //var keyword let js know the variable2 is a variable, not an object
 				//var keyword inside a function tell js the variable has local scope
+console.log('typeof(variable2) '+typeof(variable2))
 
 variable3 = undefined;
 
@@ -21,10 +22,12 @@ console.log("variable2==variable3 "+(variable2==variable3));
 
 
 //Logical Operators
+console.log('Logical Operators');
 console.log("1=='1' is "+(1=='1'));
 console.log("1!=='1' is "+(1!=='1')); //true  //not equal in value and type
 console.log("1==='1' is "+(1==='1'));
 console.log("1!='1' is "+(1!='1'));
+console.log("14.00==14 "+(14.00 == 14));
 
 var p=2;
 console.log("result: " + (p-->1||(++p>2)));
@@ -48,6 +51,12 @@ console.log(typeof p3);
 MyVar2=ThatVar=OtherVar=0;  //we can string assignments together, setting more than one variable at a time
 
 //MyVar3, MyVar4 = 1;  //MyVar3 is not defined
+
+console.log('isNaN(2.0) '+isNaN(2.0));
+console.log('isNaN(0/0) '+isNaN(0/0));
+console.log(0/0);
+console.log('isNaN("2.0") '+isNaN("2.0"));
+console.log('isNaN("a") '+isNaN("a"));
 
 
 //The WITH keyword (with statement)
@@ -216,7 +225,9 @@ var lessonDateLocaleStr = lessonDate.toLocaleString();  //"8/2/1976, 7:35:00 PM"
 
 var lessonDateEngland = lessonDate.toLocaleDateString('en-gb');  //  2/8/1976
 
-var lessonDateUS = lessonDate.toLocaleDateString('en-us');  //  2/8/1976
+//var lessonDateEngland2 = lessonDate.toLocale('en-gb');
+
+var lessonDateUS = lessonDate.toLocaleDateString('en-us');  //  8/2/1976
 
 var lessonTimeIreland = lessonDate.toLocaleTimeString();  //  12:00:00 AM
 
@@ -1257,6 +1268,16 @@ var mult = a1*b1;
 var mod = c1%b1%a1;
 /*-------------*/
 
+var h = 12;
+var i =13;
+var z = 14;
+
+var resHij = (i<=h++)||(--z>=i);
+console.log("Result: "+resHij);
+console.log('h = '+h+' ,i = '+i+' ,z = '+z);
+
+
+/*-------------*/
 var First_Name;
 var Last_Name;
 
