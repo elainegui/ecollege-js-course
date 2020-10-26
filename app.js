@@ -4,7 +4,7 @@ console.log('hi');
 
 variable1 = 3;
 
-//variablexy; //give an error
+//variable xy; //give an error
 
 var numx =10 , charc = "C" ; //declare an initialize 2 variables
 
@@ -1330,3 +1330,7 @@ case 5:
 
 console.log("The dog chosen is: "+out2);
 
+var salary = "one thousand"
+console.log(isNaN(salary));
+salary2 = Number(salary);
+console.log(salary2);
